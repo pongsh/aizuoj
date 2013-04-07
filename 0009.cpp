@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     const int numPrimes = 1000000;
-	bool primes[numPrimes];
+    bool primes[numPrimes];
     for (int i = 0; i != numPrimes; ++i) {
         primes[i] = true;
     }
