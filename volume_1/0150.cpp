@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    const int numPrimes = 1000000;
+    const int numPrimes = 10005;
     bool primes[numPrimes];
     for (int i = 2; i != numPrimes; ++i) {
         primes[i] = true;
@@ -11,19 +11,21 @@ int main() {
 
     for (int i = 2; i != int(sqrt(numPrimes)); ++i) {
         if (primes[i]) {        
-            for (int j = 2 * i; j < numPrimes; ++j) {
-                primes[j] = false;
+            for (int j = 2; i * j < numPrimes; ++j) {
+                primes[i*j] = false;
             }
         }
     }
 
     int n;
-    while (cin >> n) {
-        int count = 0;
-        for (int i = 2; i <= n; ++i) {
-            if (primes[i]) { ++count; }
+    while (cin >> n && n != 0) {
+        for (int i = n; i - 2 >= 0; --i) {
+            if (primes[i] && primes[i-2]) {
+                cout << i-2 << " " << i << endl;
+                break;
+            }
         }
-        cout << count << endl;
     }
+
     return 0;
 }
