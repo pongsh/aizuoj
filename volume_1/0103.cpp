@@ -29,4 +29,5 @@ int main() {
         }
         cout << points << endl;
     }
+    return 0;
 }
